@@ -6,4 +6,7 @@ public class Constant {
         public  static final int EXPLICIT_WAIT = 10;
 
     }
+    public static class Urls{
+        public static final String LOG_IN_URL = "https://sut-stand-autotests.ks.web-bee.ru/";
+    }
 }
