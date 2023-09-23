@@ -10,10 +10,6 @@ public class LogInTest extends BaseTest {
 @Test
     public  void logIn (){
         basePage.open(LOG_IN_URL);
-
-        sutHomePage
-
-                .logIn();
-    .
+        sutHomePage.logIn();
     }
 }

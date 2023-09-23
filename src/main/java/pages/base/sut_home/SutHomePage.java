@@ -6,6 +6,7 @@ import pages.base.BasePage;
 
 public class SutHomePage extends BasePage {
     public SutHomePage(WebDriver driver) {
+
         super(driver);
     }
     private final By loginField = By.cssSelector("input[name='login']");

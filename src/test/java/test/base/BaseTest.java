@@ -9,6 +9,7 @@ import org.testng.annotations.AfterTest;
 import pages.base.BasePage;
 import pages.base.sut_home.SutHomePage;
 
+import static common.config.CLEAR_COOKIES_AND_STORAGE;
 import static common.config.HOLD_BROWSER_OPEN;
 
 public class BaseTest {
@@ -16,21 +17,22 @@ public class BaseTest {
     protected BasePage basePage = new BasePage(driver);
     protected SutHomePage sutHomePage = new SutHomePage(driver);
 
-//выйти из драйвера после закрытия/
-    @AfterSuite (alwaysRun = true)
-    public void close(){
-        if (HOLD_BROWSER_OPEN){
+    //выйти из драйвера после закрытия/
+    @AfterTest
+    public void clearCookiesAndLocalStorage() {
+        if (CLEAR_COOKIES_AND_STORAGE) {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+            driver.manage().deleteAllCookies();
+            javascriptExecutor.executeScript("window.sessionStorage.clear()");
+        }
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void close() {
+        if (HOLD_BROWSER_OPEN) {
             driver.quit();
         }
 
+
     }
-
-    // public void  clearCookiesAndLocalStorage(){ */
-        //if (CLEAR) {
-        //    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        //    driver.manage().deleteAllCookies();
-        //    javascriptExecutor.executeScript("window.sessionStorage.clear()");
-        //}
-
-
 }
