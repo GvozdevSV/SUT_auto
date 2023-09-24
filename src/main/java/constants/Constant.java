@@ -8,5 +8,6 @@ public class Constant {
     }
     public static class Urls{
         public static final String LOG_IN_URL = "https://sut-stand-autotests.ks.web-bee.ru";
+        public static final String PIVOT_TABLE_PROJECT_URL = "https://sut-stand-autotests.ks.web-bee.ru/pivot-table/project";
     }
 }

@@ -11,5 +11,6 @@ public class LogInTest extends BaseTest {
     public  void logIn (){
         basePage.open(LOG_IN_URL);
         sutHomePage.logIn();
+
     }
 }
