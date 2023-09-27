@@ -1,7 +1,6 @@
 package test.login;
 
 import org.testng.annotations.Test;
-import pages.base.BasePage;
 import test.base.BaseTest;
 
 import static constants.Constant.Urls.LOG_IN_URL;
