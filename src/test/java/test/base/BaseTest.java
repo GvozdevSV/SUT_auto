@@ -19,7 +19,7 @@ public class BaseTest {
     protected SutHomePage sutHomePage = new SutHomePage(driver);
     protected PivotPage pivotPage = new PivotPage(driver);
 
-    //выйти из драйвера после закрытия/
+
     @AfterTest
     public void clearCookiesAndLocalStorage() {
         if (CLEAR_COOKIES_AND_STORAGE) {

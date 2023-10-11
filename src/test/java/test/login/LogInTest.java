@@ -7,7 +7,7 @@ import static constants.Constant.Urls.LOG_IN_URL;
 
 public class LogInTest extends BaseTest {
 @Test
-    public  void logIn (){
+    public  void logIn () throws InterruptedException {
         basePage.open(LOG_IN_URL);
         sutHomePage.logIn();
 
