@@ -7,7 +7,7 @@ public class Constant {
 
     }
     public static class Urls{
-        public static final String LOG_IN_URL = "http://10.7.2.3:39117/";
-        public static final String PIVOT_TABLE_PROJECT_URL = "http://10.7.2.3:39117/pivot-table/project";
+        public static final String LOG_IN_URL = "http://10.7.2.3:43025/";
+        public static final String PIVOT_TABLE_PROJECT_URL = "http://10.7.2.3:43025/pivot-table/project";
     }
 }
