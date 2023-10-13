@@ -61,7 +61,9 @@ public class PivotPage extends BasePage {
     private final By submitButton = By.xpath("//button[text()='Применить']");
 
 
-    public void openFilter(){
+    public void openFilter() throws InterruptedException {
+
+        TimeUnit.SECONDS.sleep(4);
         waitElementIsVisible(driver.findElement(PivotDropdownButton)).click();
     }
     public void checkDropdown() throws InterruptedException {
