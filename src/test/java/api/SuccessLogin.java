@@ -22,4 +22,7 @@ public class SuccessLogin {
     public String getAbilityToken() {
         return abilityToken;
     }
+    public SuccessLogin(){
+
+    }
 }
