@@ -17,6 +17,11 @@ public class AddNewUserTests extends BaseTest {
         addNewUserPage.getOuterFieldPlaceholder();
         addNewUserPage.goToTabProject();
         addNewUserPage.addProjectButton();
+        addNewUserPage.getProjectTabFieldName();
+        addNewUserPage.getLeadCheckbox();
+        addNewUserPage.goToTabContacts();
+        addNewUserPage.getContactFieldName();
+        addNewUserPage.haveSubmitAndBrakeButtons();
 
 
 

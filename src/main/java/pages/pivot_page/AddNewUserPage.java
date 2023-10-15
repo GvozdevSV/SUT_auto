@@ -25,11 +25,15 @@ public class AddNewUserPage extends BasePage {
     private final By toProjectTabButton = By.xpath("//button[text()='ПРОЕКТЫ']");
     private final By addProjectButton = By.xpath("//button[text()='Добавить проект']");
     private final By projectTabFields = By.xpath("//label[contains(@class, 'MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated')]");
+    private final By projectLeadCheckbox = By.xpath("//label[contains(@class,\"MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd \")]");
 
 
     //вкладка контакты
     private final By toContactTabButton = By.xpath("//button[text()='КОНТАКТЫ']");
     private final By contactTabFields = By.xpath("//input[contains(@class, 'MuiOutlinedInput-input MuiInputBase-input')]");
+    //кнопки сохранить и отменить
+    private final By submitButton = By.xpath("//button[contains(@type,\"submit\")]");
+    private final By breakButton  = By.xpath("//button[text()='Отменить']");
 
 
     //переходим на дровер
@@ -70,7 +74,7 @@ public class AddNewUserPage extends BasePage {
     }
     //берем значение плейсхолдеров с 2 полей на вкладке проекты)
     public void getProjectTabFieldName (){
-        List<WebElement> checkedElements = driver.findElements(contactTabFields);
+        List<WebElement> checkedElements = driver.findElements(projectTabFields);
         StringBuffer data = new StringBuffer();
         for (WebElement checkedElement : checkedElements) {
             String f = checkedElement.getAttribute("innerText");
@@ -79,19 +83,34 @@ public class AddNewUserPage extends BasePage {
         //Так как мы можем несколько раз нажать на кнопку добавить проект, и у нас будет не 2 а 4 или 6 полей на странице, нам нужно проверить что конечная строка собержит тексты плейсхолдеров
         Assert.assertTrue(data.toString().contains(написать текст когда будет работать сайт), "Одно из полей отсутствует");
     }
-
+    //проверяем чекбокс руководитель проекта
+    public void getLeadCheckbox(){
+        String name = waitElementIsVisible(driver.findElement(projectLeadCheckbox)).getAttribute("innerText");
+        Assert.assertEquals(name,"Руководитель проекта", "Отсутствует чекбокс руководитель проекта");
+    }
 
     //Переходим на таб контакты
     public void goToTabContacts(){
         waitElementIsVisible(driver.findElement(toContactTabButton)).click();
     }
-    public void getContactFieldName (){
+    //Берем имена с полей вкладки контакты
+    public void getContactFieldName () {
         List<WebElement> checkedElements = driver.findElements(contactTabFields);
         StringBuffer data = new StringBuffer();
         for (WebElement checkedElement : checkedElements) {
             String f = checkedElement.getAttribute("name");
             data.append(f + ' ');
         }
-        Assert.assertEquals(data.toString(), "username secondName name thirdName ", "одно из полей отсутствует в дровере");
+        Assert.assertEquals(data.toString(), заполнить когда будет доступ к сайту, "одно из полей отсутствует в дровере");
+    }
+    public void haveSubmitAndBrakeButtons(){
+        String submitName = waitElementIsVisible(driver.findElement(submitButton)).getAttribute("innerText");
+        String breakButtonName = waitElementIsVisible(driver.findElement(breakButton)).getAttribute("innerText");
+
+        Assert.assertEquals(submitName,"СОХРАНИТЬ", "Отсутствует кнопка сохранить");
+        Assert.assertEquals(breakButtonName,"ОТМЕНИТЬ", "Отсутствует кнопка отменить");
+    }
+
+
 }
 
