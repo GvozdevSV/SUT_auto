@@ -15,6 +15,8 @@ public class AddNewUserTests extends BaseTest {
         addNewUserPage.goTooNewUserDrover();
         addNewUserPage.getFIOFieldName();
         addNewUserPage.getOuterFieldPlaceholder();
+        addNewUserPage.goToTabProject();
+        addNewUserPage.addProjectButton();
 
 
 

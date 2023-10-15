@@ -21,6 +21,16 @@ public class AddNewUserPage extends BasePage {
     private final By fioAndLoginElements = By.xpath("//input[contains(@class, 'MuiOutlinedInput-input MuiInputBase-input css-u4lv5a')]");
     //локатор 6 оставшихся полей
     private final By outerField = By.xpath("//input[contains(@class, 'MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd')]");
+    //вкладка проект
+    private final By toProjectTabButton = By.xpath("//button[text()='ПРОЕКТЫ']");
+    private final By addProjectButton = By.xpath("//button[text()='Добавить проект']");
+    private final By projectTabFields = By.xpath("//label[contains(@class, 'MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated')]");
+
+
+    //вкладка контакты
+    private final By toContactTabButton = By.xpath("//button[text()='КОНТАКТЫ']");
+    private final By contactTabFields = By.xpath("//input[contains(@class, 'MuiOutlinedInput-input MuiInputBase-input')]");
+
 
     //переходим на дровер
     public void goTooNewUserDrover(){
@@ -51,6 +61,37 @@ public class AddNewUserPage extends BasePage {
         Assert.assertEquals(data.toString(), mustData, "одно из полей отсутствует в дровере");
 
     }
+    //Переходим на таб проект
+    public void goToTabProject(){
+        waitElementIsVisible(driver.findElement(toProjectTabButton)).click();
+    }
+    public void addProjectButton(){
+        waitElementIsVisible(driver.findElement(addProjectButton)).click();
+    }
+    //берем значение плейсхолдеров с 2 полей на вкладке проекты)
+    public void getProjectTabFieldName (){
+        List<WebElement> checkedElements = driver.findElements(contactTabFields);
+        StringBuffer data = new StringBuffer();
+        for (WebElement checkedElement : checkedElements) {
+            String f = checkedElement.getAttribute("innerText");
+            data.append(f + ' ');
+        }
+        //Так как мы можем несколько раз нажать на кнопку добавить проект, и у нас будет не 2 а 4 или 6 полей на странице, нам нужно проверить что конечная строка собержит тексты плейсхолдеров
+        Assert.assertTrue(data.toString().contains(написать текст когда будет работать сайт), "Одно из полей отсутствует");
+    }
 
+
+    //Переходим на таб контакты
+    public void goToTabContacts(){
+        waitElementIsVisible(driver.findElement(toContactTabButton)).click();
+    }
+    public void getContactFieldName (){
+        List<WebElement> checkedElements = driver.findElements(contactTabFields);
+        StringBuffer data = new StringBuffer();
+        for (WebElement checkedElement : checkedElements) {
+            String f = checkedElement.getAttribute("name");
+            data.append(f + ' ');
+        }
+        Assert.assertEquals(data.toString(), "username secondName name thirdName ", "одно из полей отсутствует в дровере");
 }
 
