@@ -81,7 +81,8 @@ public class AddNewUserPage extends BasePage {
             data.append(f + ' ');
         }
         //Так как мы можем несколько раз нажать на кнопку добавить проект, и у нас будет не 2 а 4 или 6 полей на странице, нам нужно проверить что конечная строка собержит тексты плейсхолдеров
-        Assert.assertTrue(data.toString().contains(написать текст когда будет работать сайт), "Одно из полей отсутствует");
+        System.out.println(data);
+        Assert.assertTrue(data.toString().contains("Проект * Роль в проекте * "), "Одно из полей отсутствует");
     }
     //проверяем чекбокс руководитель проекта
     public void getLeadCheckbox(){
@@ -101,7 +102,7 @@ public class AddNewUserPage extends BasePage {
             String f = checkedElement.getAttribute("name");
             data.append(f + ' ');
         }
-        Assert.assertEquals(data.toString(), заполнить когда будет доступ к сайту, "одно из полей отсутствует в дровере");
+        Assert.assertEquals(data.toString(), "phone email ", "одно из полей отсутствует в дровере");
     }
     public void haveSubmitAndBrakeButtons(){
         String submitName = waitElementIsVisible(driver.findElement(submitButton)).getAttribute("innerText");
