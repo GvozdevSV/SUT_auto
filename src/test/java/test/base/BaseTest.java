@@ -1,14 +1,13 @@
 package test.base;
 
 import common.CommonActions;
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import pages.base.BasePage;
 import pages.base.sut_home.SutHomePage;
-import pages.pivot_page.AddNewUserPage;
+import pages.add_user_page.AddNewUserPage;
 import pages.pivot_page.PivotPage;
 
 import static common.config.CLEAR_COOKIES_AND_STORAGE;

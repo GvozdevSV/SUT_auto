@@ -1,4 +1,4 @@
-package pages.pivot_page;
+package pages.add_user_page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -102,7 +102,7 @@ public class AddNewUserPage extends BasePage {
             String f = checkedElement.getAttribute("name");
             data.append(f + ' ');
         }
-        Assert.assertEquals(data.toString(), "phone email ", "одно из полей отсутствует в дровере");
+        Assert.assertEquals(data.toString(), "phone email ", "одно из полей телефон или электронный адрес отсутствует в дровере");
     }
     public void haveSubmitAndBrakeButtons(){
         String submitName = waitElementIsVisible(driver.findElement(submitButton)).getAttribute("innerText");
@@ -111,7 +111,6 @@ public class AddNewUserPage extends BasePage {
         Assert.assertEquals(submitName,"СОХРАНИТЬ", "Отсутствует кнопка сохранить");
         Assert.assertEquals(breakButtonName,"ОТМЕНИТЬ", "Отсутствует кнопка отменить");
     }
-
 
 }
 

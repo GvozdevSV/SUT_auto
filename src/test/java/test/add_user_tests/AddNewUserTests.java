@@ -1,4 +1,4 @@
-package test.pivot_table;
+package test.add_user_tests;
 
 import org.testng.annotations.Test;
 import test.base.BaseTest;
@@ -22,13 +22,5 @@ public class AddNewUserTests extends BaseTest {
         addNewUserPage.goToTabContacts();
         addNewUserPage.getContactFieldName();
         addNewUserPage.haveSubmitAndBrakeButtons();
-
-
-
-
-
     }
-
-
-
 }
