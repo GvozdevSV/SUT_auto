@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import pages.base.BasePage;
 import pages.base.sut_home.SutHomePage;
 import pages.add_user_page.AddNewUserPage;
+import pages.pivot_page.DropdownFilterPivotPage;
 import pages.pivot_page.PivotPage;
 
 import static common.config.CLEAR_COOKIES_AND_STORAGE;
@@ -18,6 +19,7 @@ public class BaseTest {
     protected BasePage basePage = new BasePage(driver);
     protected SutHomePage sutHomePage = new SutHomePage(driver);
     protected PivotPage pivotPage = new PivotPage(driver);
+    protected DropdownFilterPivotPage dropdownFilterPivotPage = new DropdownFilterPivotPage(driver);
     protected AddNewUserPage addNewUserPage = new AddNewUserPage(driver);
 
 
