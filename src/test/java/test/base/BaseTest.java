@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import pages.base.BasePage;
 import pages.base.sut_home.SutHomePage;
 import pages.add_user_page.AddNewUserPage;
+import pages.labor_costs_page.LaborCostsPage;
 import pages.pivot_page.DropdownFilterPivotPage;
 import pages.pivot_page.PivotPage;
 
@@ -21,6 +22,7 @@ public class BaseTest {
     protected PivotPage pivotPage = new PivotPage(driver);
     protected DropdownFilterPivotPage dropdownFilterPivotPage = new DropdownFilterPivotPage(driver);
     protected AddNewUserPage addNewUserPage = new AddNewUserPage(driver);
+    protected LaborCostsPage laborCostsPage = new LaborCostsPage(driver);
 
 
     @AfterTest

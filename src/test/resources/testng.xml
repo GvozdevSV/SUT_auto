@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/ASUS/IdeaProjects/SUT_auto">
+        <classes>
+            <class name="api.AuthTests">
+                <methods>
+                    <include name="successAuthTests"/>
+                    <include name="errorAuthTests"/>
+                </methods>
+            </class>
+            <class name="test.add_user_tests.AddNewUserTests">
+                <methods>
+                    <include name="AddNewUserTest"/>
+                </methods>
+            </class>
+            <class name="test.pivot_table.DropdownFilterPivotPageTests">
+                <methods>
+                    <include name="CheckDropdownFilterTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
