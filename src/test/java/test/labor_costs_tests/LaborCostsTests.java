@@ -2,7 +2,6 @@ package test.labor_costs_tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.util.TimeUtils;
 import test.base.BaseTest;
 
 import java.util.concurrent.TimeUnit;
@@ -10,47 +9,32 @@ import java.util.concurrent.TimeUnit;
 import static constants.Constant.Urls.LOG_IN_URL;
 
 public class LaborCostsTests extends BaseTest {
+    //Тест 3.2.2.1 Проверка правильности подсчета трудозатрат за неделю при отображении "Сводной таблицы" "За неделю".
     @Test
     public void checkSumOfReason() throws InterruptedException {
         basePage.open(LOG_IN_URL);
         sutHomePage.logIn();
+        //создаем проект
+        createProjectPage.goToCreateProjectDrawer();
+        createProjectPage.createProject();
+        //заполняем таблицу трудозатрат
+        laborCostsPage.goToLaborCostsPage();
         laborCostsPage.selectWeekPeriodOnLaborCost();
         int sumInWeek = laborCostsPage.inputWorkHour();
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
+        //берем значение из сводной таблицы
         sutHomePage.goToPivotPage();
-        TimeUnit.SECONDS.sleep(5);
+        TimeUnit.SECONDS.sleep(2);
         pivotPage.selectWeekPeriodOnLabor();
-        int outputSum = pivotPage.getAvroraSum();
+        int outputSum = pivotPage.geATPSum();
+        //сравниваем значение суммы трудозатрат за неделю с значением сводной таблицы
         Assert.assertEquals(sumInWeek, outputSum);
-
-
-    }
-    @Test
-    public void create() throws InterruptedException {
-        basePage.open(LOG_IN_URL);
-        sutHomePage.logIn();
-        createProjectPage.goToCreateProjectDrawer();
-        createProjectPage.createProject();
+        //очищаем таблицу трудозатрат
+        laborCostsPage.goToLaborCostsPage();
+        laborCostsPage.clearMonthWorkHour();
+        //удаляем проект
         createProjectPage.goToAllProjectPage();
         createProjectPage.deleteProject();
-    }
-    @Test
-    public void checkSumOfReason2() throws InterruptedException {
-        basePage.open(LOG_IN_URL);
-        sutHomePage.logIn();
-        createProjectPage.goToCreateProjectDrawer();
-        createProjectPage.createProject();
-        laborCostsPage.goToLaborCostsPage();
-//        laborCostsPage.selectWeekPeriodOnLaborCost();
-//        int sumInWeek = laborCostsPage.inputWorkHour();
-//        TimeUnit.SECONDS.sleep(3);
-//        sutHomePage.goToPivotPage();
-//        TimeUnit.SECONDS.sleep(5);
-//        pivotPage.selectWeekPeriodOnLabor();
-//        int outputSum = pivotPage.getAvroraSum();
-//        Assert.assertEquals(sumInWeek, outputSum);
-
-
     }
 
 }

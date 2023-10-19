@@ -10,20 +10,19 @@ public class PivotPage extends BasePage {
         super(driver);
     }
 
-
-
-
     //Изменение отображение таблици по неделям
     private final By periodSelectButton = By.cssSelector("div[class=\"MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary onboaring__period-select css-1wjoqn2\"]");
     private final By weekPeriodSelect = By.cssSelector("li[data-value=\"week\"]");
-    private final By getRowId = By.xpath("//h6[text()='Avrora']//ancestor::div[@row-id]");
+    //локатор для получения row-id нужного проекта
+    private final By getRowId = By.xpath("//h6[text()='AutoTestProject']//ancestor::div[@row-id]");
 
-
+    //выбираем отображение сводной таблици по неделям
     public void selectWeekPeriodOnLabor(){
         waitElementIsVisible(driver.findElement(periodSelectButton)).click();
         waitElementIsVisible(driver.findElement(weekPeriodSelect)).click();
     }
-    public int getAvroraSum(){
+    //получаем значение ссписанных за неделю часов со сводной таблицы
+    public int geATPSum(){
         String rowId = waitElementIsVisible(driver.findElement(getRowId)).getAttribute("row-id");
         //System.out.println(rowId);
         final By avroraSum = By.xpath("//div[@row-id='"+rowId+"']//div[@aria-colindex=\"10\"]//p");
