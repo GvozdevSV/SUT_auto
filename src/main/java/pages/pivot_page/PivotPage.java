@@ -25,10 +25,10 @@ public class PivotPage extends BasePage {
     }
     public int getAvroraSum(){
         String rowId = waitElementIsVisible(driver.findElement(getRowId)).getAttribute("row-id");
-        System.out.println(rowId);
+        //System.out.println(rowId);
         final By avroraSum = By.xpath("//div[@row-id='"+rowId+"']//div[@aria-colindex=\"10\"]//p");
         String outputText = waitElementIsVisible(driver.findElement(avroraSum)).getAttribute("innerText");
-        System.out.println(outputText);
+        //System.out.println(outputText);
         int outputSum = Integer.parseInt(outputText);
         return outputSum;
     }
